@@ -9,25 +9,23 @@
 <body>
     <h1>Leopard Keen Chain Interaction</h1>
     
-    <button onclick="connectWallet()">Connect Wallet</button>
+    <button id="connectWalletBtn">Connect Wallet</button>
     
     <script>
         async function connectWallet() {
-            try {
-                const provider = new WalletConnectProvider({
-                    rpc: {
-                        1063590932: 'https://leopardkeen-rpc.eu-north-2.gateway.fm',
-                    },
-                    chainId: 1063590932,
-                });
+            const provider = new WalletConnectProvider({
+                rpc: {
+                    1063590932: 'https://leopardkeen-rpc.eu-north-2.gateway.fm',
+                },
+                chainId: 1063590932,
+            });
 
-                await provider.enable();
-                
-                console.log('Wallet connected:', provider);
-            } catch (error) {
-                console.error('Error connecting wallet:', error);
-            }
+            await provider.enable();
+            
+            console.log('Wallet connected:', provider);
         }
+
+        document.getElementById('connectWalletBtn').addEventListener('click', connectWallet);
     </script>
 </body>
 </html>
