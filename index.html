@@ -9,11 +9,9 @@
 <body>
     <h1>Leopard Keen Chain Interaction</h1>
     
-    <button id="connectWalletBtn">Connect Wallet</button>
+    <button onclick="connectWallet()">Connect Wallet</button>
     
     <script>
-        document.getElementById('connectWalletBtn').addEventListener('click', connectWallet);
-
         async function connectWallet() {
             try {
                 const provider = new WalletConnectProvider({
@@ -21,18 +19,8 @@
                         1063590932: 'https://leopardkeen-rpc.eu-north-2.gateway.fm',
                     },
                     chainId: 1063590932,
-                    qrcodeModalOptions: {
-                        mobileLinks: [
-                            'rainbow',
-                            'metamask',
-                            'argent',
-                            'trust',
-                            'imtoken',
-                            'pillar'
-                        ]
-                    },
                 });
-                
+
                 await provider.enable();
                 
                 console.log('Wallet connected:', provider);
