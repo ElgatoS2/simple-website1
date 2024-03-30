@@ -9,9 +9,11 @@
 <body>
     <h1>Leopard Keen Chain Interaction</h1>
     
-    <button onclick="connectWallet()">Connect Wallet</button>
+    <button id="connectWalletBtn">Connect Wallet</button>
     
     <script>
+        document.getElementById('connectWalletBtn').addEventListener('click', connectWallet);
+
         async function connectWallet() {
             try {
                 const provider = new WalletConnectProvider({
